@@ -3,6 +3,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
+    padding-bottom: 50px; /* Añadido un margen en la parte inferior para que no quede cubierto por el footer */
 }
 
 header {
@@ -27,23 +28,14 @@ header {
     padding: 20px;
     width: 200px;
     text-align: center;
-    font-size: 1.5em;
-    font-weight: bold;
-    position: relative;
-    display: inline-block;
-    padding: 10px;
-    max-width: 100%;
-    box-sizing: border-box;
 }
 
-/* Ajustes en imágenes */
 .producto img {
     max-width: 100%;
     height: auto;
     border-radius: 5px;
 }
 
-/* Ajustes para títulos y párrafos */
 .producto h2 {
     font-size: 1.2em;
     margin: 10px 0;
@@ -54,7 +46,6 @@ header {
     color: #555;
 }
 
-/* Precios */
 .precio {
     font-size: 1.2em;
     color: #e67e22;
@@ -79,7 +70,7 @@ footer {
     color: #fff;
     text-align: center;
     padding: 10px;
-    position: relative; /* Cambié de "fixed" a "relative" */
+    position: static; /* Cambié de "relative" a "static" para que fluya con el contenido */
     width: 100%;
 }
 
@@ -242,6 +233,7 @@ footer {
     }
     footer {
         font-size: 12px;
+        padding: 15px;
     }
     .carrito {
         top: 10px;
