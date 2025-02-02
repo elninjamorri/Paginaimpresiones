@@ -27,6 +27,13 @@ header {
     padding: 20px;
     width: 200px;
     text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+    padding: 10px;
+    max-width: 100%; /* Evita que sobresalga el producto */
+    box-sizing: border-box; /* Para asegurarnos de que el padding no haga que el contenedor se desborde */
 }
 
 .producto img {
@@ -73,6 +80,7 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
 .carrito {
     position: absolute;
     top: 20px;
@@ -98,7 +106,6 @@ footer {
     color: #e67e22;
     font-size: 1.2em;
 }
-
 
 #carrito-detalles {
     background-color: #fff;
@@ -128,6 +135,7 @@ footer {
 #vaciar-carrito:hover {
     background-color: #c9302c;
 }
+
 .off {
     color: red; /* Color rojo para "OFF" */
     font-weight: bold; /* Poner en negrita */
@@ -152,27 +160,6 @@ footer {
     }
     100% {
         text-shadow: 0 0 10px yellow, 0 0 20px yellow, 0 0 40px yellow, 0 0 60px orange, 0 0 80px orange;
-    }
-}
-.producto {
-    font-size: 1.5em;
-    font-weight: bold;
-    position: relative;
-    display: inline-block;
-    padding: 10px;
-    max-width: 100%; /* Evita que sobresalga el producto */
-    box-sizing: border-box; /* Para asegurarnos de que el padding no haga que el contenedor se desborde */
-}
-
-@keyframes brillar {
-    0% {
-        text-shadow: 0 0 5px red, 0 0 10px red, 0 0 15px red, 0 0 20px red;
-    }
-    50% {
-        text-shadow: 0 0 10px red, 0 0 15px red, 0 0 20px red, 0 0 25px yellow;
-    }
-    100% {
-        text-shadow: 0 0 5px red, 0 0 10px red, 0 0 15px red, 0 0 20px red;
     }
 }
 
@@ -227,6 +214,7 @@ footer {
 .producto:hover .precio-original::after {
     width: 100%; /* El tachado se estira completamente */
 }
+
 #boton-comprar {
     background-color: #25D366; /* Verde de WhatsApp */
     color: white;
