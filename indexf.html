@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Tienda Online</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Bienvenido a Mi Tienda</h1>
+        <p>Los mejores productos para ti</p>
+		<div class="carrito">
+			<img src="https://img.icons8.com/?size=100&id=Qen4bzysydKM&format=png&color=000000" alt="Carrito de compras" id="carrito-icono" />
+			<span id="carrito-contador">0</span>
+		</div>
+    </header>
+
+    <section class="productos">
+        <div class="producto" data-id="1" data-nombre="Araña" data-precio="1000">
+            <img src="https://i.imgur.com/kDUrsXD.jpeg" alt="Producto 1">
+            <h2>Araña</h2>
+            <p>Adorno.</p>
+			<p class="producto">
+				<span class="off">OFF</span> 
+				<span class="precio-container">
+					<span class="precio-original">$3800</span>
+					<span class="precio-final">$1000</span>
+				</span>
+			</p>
+            <button class="agregar-carrito">Agregar al carrito</button>
+        </div>
+
+        <div class="producto" data-id="2" data-nombre="Producto 2" data-precio="1000">
+            <img src="producto2.jpg" alt="Producto 2">
+            <h2>Producto 2</h2>
+            <p>Perrito Articulado.</p>
+			<p class="producto">
+				<span class="off">OFF</span> 
+				<span class="precio-container">
+					<span class="precio-original">$3800</span>
+					<span class="precio-final">$1000</span>
+				</span>
+			</p>
+
+            <button class="agregar-carrito">Agregar al carrito</button>
+        </div>
+
+        <!-- Puedes agregar más productos aquí -->
+    </section>
+
+    <div id="carrito-detalles">
+        <h3>Tu Carrito</h3>
+        <div id="carrito-lista"></div>
+        <p>Total: <span id="carrito-total">$0.00</span></p>
+        <button id="vaciar-carrito">Vaciar Carrito</button>
+		<!-- Botón para enviar el carrito por WhatsApp -->
+		<button id="boton-comprar">Comprar</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Mi Tienda Online</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

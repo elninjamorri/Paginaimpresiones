@@ -1,0 +1,242 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.productos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+.producto {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+}
+
+.producto img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.producto h2 {
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+.producto p {
+    font-size: 1em;
+    color: #555;
+}
+
+.precio {
+    font-size: 1.2em;
+    color: #e67e22;
+    font-weight: bold;
+}
+
+button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.carrito {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carrito img {
+    width: 30px; /* Ajusta el tamaño de la imagen */
+    height: auto;
+    margin-right: 8px; /* Espacio entre el ícono y el número */
+}
+
+.carrito span {
+    font-weight: bold;
+    color: #e67e22;
+    font-size: 1.2em;
+}
+
+
+#carrito-detalles {
+    background-color: #fff;
+    padding: 20px;
+    position: fixed;
+    top: 50px;
+    right: 50px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    display: none;
+}
+
+#carrito-lista {
+    margin-bottom: 10px;
+}
+
+#vaciar-carrito {
+    background-color: #d9534f;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+
+#vaciar-carrito:hover {
+    background-color: #c9302c;
+}
+.off {
+    color: red; /* Color rojo para "OFF" */
+    font-weight: bold; /* Poner en negrita */
+    position: relative; /* Necesario para la animación */
+    display: inline-block; /* Aseguramos que la palabra se pueda animar */
+    animation: brillo 1.5s ease-in-out infinite; /* Animación de brillo */
+}
+
+/* Definimos la animación de brillo */
+@keyframes brillo {
+    0% {
+        text-shadow: 0 0 10px yellow, 0 0 20px yellow, 0 0 40px yellow, 0 0 60px orange, 0 0 80px orange;
+    }
+    25% {
+        text-shadow: 0 0 20px yellow, 0 0 40px yellow, 0 0 60px yellow, 0 0 80px orange, 0 0 100px orange;
+    }
+    50% {
+        text-shadow: 0 0 40px yellow, 0 0 60px yellow, 0 0 80px yellow, 0 0 100px orange, 0 0 120px orange;
+    }
+    75% {
+        text-shadow: 0 0 20px yellow, 0 0 40px yellow, 0 0 60px yellow, 0 0 80px orange, 0 0 100px orange;
+    }
+    100% {
+        text-shadow: 0 0 10px yellow, 0 0 20px yellow, 0 0 40px yellow, 0 0 60px orange, 0 0 80px orange;
+    }
+}
+.producto {
+    font-size: 1.5em;
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+    padding: 10px;
+    max-width: 100%; /* Evita que sobresalga el producto */
+    box-sizing: border-box; /* Para asegurarnos de que el padding no haga que el contenedor se desborde */
+}
+
+@keyframes brillar {
+    0% {
+        text-shadow: 0 0 5px red, 0 0 10px red, 0 0 15px red, 0 0 20px red;
+    }
+    50% {
+        text-shadow: 0 0 10px red, 0 0 15px red, 0 0 20px red, 0 0 25px yellow;
+    }
+    100% {
+        text-shadow: 0 0 5px red, 0 0 10px red, 0 0 15px red, 0 0 20px red;
+    }
+}
+
+/* Contenedor para los precios */
+.precio-container {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.precio-original {
+    display: inline-block;
+    margin-right: 10px;
+    position: relative;
+    text-decoration: line-through; /* Tachado */
+    color: #aaa; /* Gris para el precio original */
+    font-size: 1em; /* Tamaño ajustado */
+    white-space: nowrap; /* Evita que el precio se desborde */
+}
+
+.precio-final {
+    display: inline-block;
+    font-size: 1.2em; /* Tamaño ajustado */
+    color: #28a745; /* Verde para el precio final */
+    font-weight: bold;
+    margin-left: 10px; /* Separación con el precio original */
+    padding: 3px 10px; /* Relleno alrededor del precio */
+    background-color: #fff; /* Fondo blanco */
+    border: 2px solid #28a745; /* Borde verde */
+    border-radius: 5px; /* Esquinas redondeadas */
+    box-shadow: 0 0 10px rgba(0, 128, 0, 0.3); /* Sombra verde */
+    display: inline-block; /* Evita que sobresalga */
+    vertical-align: middle; /* Alineación con el precio original */
+    white-space: nowrap; /* Evita que el precio se desborde */
+}
+
+/* Animación para el tachado del precio */
+.precio-original::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 0; /* Inicialmente no visible */
+    height: 2px;
+    background-color: red;
+    transform: translateY(-50%);
+    transition: width 0.5s ease-in-out; /* Transición suave */
+}
+
+/* Efecto cuando el mouse pasa sobre el producto */
+.producto:hover .precio-original::after {
+    width: 100%; /* El tachado se estira completamente */
+}
+#boton-comprar {
+    background-color: #25D366; /* Verde de WhatsApp */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#boton-comprar:hover {
+    background-color: #128C7E; /* Color más oscuro en hover */
+}
