@@ -84,6 +84,7 @@ document.getElementById('vaciar-carrito').addEventListener('click', vaciarCarrit
 
 // Inicializar el carrito
 actualizarCarrito();
+
 // Función para generar el mensaje de WhatsApp con los productos del carrito
 function generarMensajeWhatsApp() {
     // Verificar si hay productos en el carrito
@@ -96,7 +97,7 @@ function generarMensajeWhatsApp() {
     let mensaje = '¡Hola! Me gustaría comprar los siguientes productos:\n\n';
 
     carrito.forEach(producto => {
-        mensaje += `- ${producto.nombre} - $${producto.precio}\n`;
+        mensaje += `- ${producto.nombre} (x${producto.cantidad}) - $${(producto.precio * producto.cantidad).toFixed(2)}\n`;
     });
 
     // Añadir mensaje final
@@ -115,7 +116,7 @@ function generarMensajeWhatsApp() {
 function calcularTotal() {
     let total = 0;
     carrito.forEach(producto => {
-        total += parseFloat(producto.precio);
+        total += producto.precio * producto.cantidad;
     });
     return total.toFixed(2); // Formatear a 2 decimales
 }
