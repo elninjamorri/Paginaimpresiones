@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Carrito de Compras</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f8f9fa;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        #carrito-lista {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .producto-carrito {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            width: 250px;
+        }
+        .producto-carrito h2 {
+            font-size: 18px;
+            margin: 0;
+            color: #333;
+        }
+        .producto-carrito p {
+            margin: 5px 0;
+            color: #555;
+        }
+        .producto-carrito .precio {
+            color: #28a745;
+            font-weight: bold;
+        }
+        .boton {
+            display: block;
+            margin: 10px auto;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 200px;
+            transition: background 0.3s ease;
+        }
+        #vaciar-carrito {
+            background-color: #dc3545;
+            color: white;
+        }
+        #vaciar-carrito:hover {
+            background-color: #c82333;
+        }
+        #boton-pagar {
+            background-color: #28a745;
+            color: white;
+        }
+        #boton-pagar:hover {
+            background-color: #218838;
+        }
+        .total {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>🛒 Tu Carrito de Compras</h1>
+    <div id="carrito-lista"></div>
+    <p class="total">Total: $<span id="total-carrito">0.00</span></p>
+    <button id="vaciar-carrito" class="boton">Vaciar Carrito</button>
+    <button id="boton-pagar" class="boton">Pagar</button>
+
+    <script>
+        const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+        const carritoLista = document.getElementById('carrito-lista');
+        const totalCarrito = document.getElementById('total-carrito');
+
+        let total = 0;
+
+        if (carrito.length > 0) {
+            carrito.forEach(producto => {
+                total += producto.precio * (producto.cantidad || 1);
+                const productoDiv = document.createElement('div');
+                productoDiv.classList.add('producto-carrito');
+                productoDiv.innerHTML = `
+                    <h2>${producto.nombre}</h2>
+                    <p>Cantidad: ${producto.cantidad || 1}</p>
+                    <p>Precio: <span class="precio">$${producto.precio * (producto.cantidad || 1)}</span></p>
+                `;
+                carritoLista.appendChild(productoDiv);
+            });
+            totalCarrito.textContent = total.toFixed(2);
+        } else {
+            carritoLista.innerHTML = '<p>No hay productos en tu carrito.</p>';
+        }
+
+        document.getElementById('vaciar-carrito').addEventListener('click', function() {
+            localStorage.removeItem('carrito');
+            window.location.reload();
+        });
+
+        document.getElementById('boton-pagar').addEventListener('click', function() {
+            if (carrito.length === 0) {
+                alert('Tu carrito está vacío.');
+                return;
+            }
+
+            let mensaje = '¡Hola! Me gustaría comprar los siguientes productos:\n\n';
+            carrito.forEach(producto => {
+                mensaje += `- ${producto.nombre} (x${producto.cantidad || 1}) - $${(producto.precio * (producto.cantidad || 1)).toFixed(2)}\n`;
+            });
+
+            mensaje += `\nTotal: $${total.toFixed(2)}\n\n¡Gracias!`;
+
+            const telefono = '3512965608';
+            const mensajeCodificado = encodeURIComponent(mensaje);
+            const enlaceWhatsApp = `https://wa.me/${telefono}?text=${mensajeCodificado}`;
+
+            window.open(enlaceWhatsApp, '_blank');
+        });
+    </script>
+</body>
+</html>

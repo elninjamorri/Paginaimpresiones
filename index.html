@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.8">
+    <title>Mi Tienda Online</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Bienvenido a Mi Tienda</h1>
+        <p>Los mejores productos para ti</p>
+		<div class="carrito">
+			<img src="https://img.icons8.com/?size=100&id=Qen4bzysydKM&format=png&color=000000" alt="Carrito de compras" id="carrito-icono" />
+			<span id="carrito-contador">0</span>
+		</div>
+    </header>
+
+    <section class="productos">
+    <div class="producto" data-id="1" data-nombre="Araña" data-precio="1000">
+        <img src="https://i.imgur.com/kDUrsXD.jpeg" alt="Producto 1" loading="lazy">
+        <h2>Araña</h2>
+        <p>Adorno.</p>
+        <p class="producto">
+            <span class="off">Oferta</span> 
+            <span class="precio-container">
+                <span class="precio-original">$4000</span>
+                <span class="precio-final">$1500</span>
+            </span>
+        </p>
+        <button class="agregar-carrito">Agregar al carrito</button>
+    </div>
+
+    <div class="producto" data-id="2" data-nombre="Producto 2" data-precio="1000">
+        <img src="producto2.jpg" alt="Producto 2">
+        <h2>Producto 2</h2>
+        <p>Perrito Articulado.</p>
+        <p class="producto">
+            <span class="off">Oferta</span> 
+            <span class="precio-container">
+                <span class="precio-original">$3800</span>
+                <span class="precio-final">$1000</span>
+            </span>
+        </p>
+        <button class="agregar-carrito">Agregar al carrito</button>
+    </div>
+
+    <div class="producto" data-id="3" data-nombre="Perrito de Peluche" data-precio="1200">
+        <img src="producto3.jpg" alt="Producto 3">
+        <h2>Perro portacelular</h2>
+        <p>Puppy.</p>
+        <p class="producto">
+            <span class="off">Oferta</span> 
+            <span class="precio-container">
+                <span class="precio-original">$4000</span>
+                <span class="precio-final">$3000</span>
+            </span>
+        </p>
+        <button class="agregar-carrito">Agregar al carrito</button>
+    </div>
+
+    <div class="producto" data-id="4" data-nombre="Reloj Digital" data-precio="1500">
+        <img src="producto4.jpg" alt="Producto 4">
+        <h2>Reloj Digital</h2>
+        <p>Reloj moderno y elegante.</p>
+        <p class="producto">
+            <span class="off">Oferta</span> 
+            <span class="precio-container">
+                <span class="precio-original">$2200</span>
+                <span class="precio-final">$1500</span>
+            </span>
+        </p>
+        <button class="agregar-carrito">Agregar al carrito</button>
+    </div>
+
+    <div class="producto" data-id="5" data-nombre="Lampara LED" data-precio="800">
+        <img src="producto5.jpg" alt="Producto 5">
+        <h2>Lampara LED</h2>
+        <p>Perfecta para decorar tu casa.</p>
+        <p class="producto">
+            <span class="off">Oferta</span> 
+            <span class="precio-container">
+                <span class="precio-original">$1500</span>
+                <span class="precio-final">$800</span>
+            </span>
+        </p>
+        <button class="agregar-carrito">Agregar al carrito</button>
+    </div>
+
+    <div class="producto" data-id="6" data-nombre="Taza Personalizada" data-precio="400">
+        <img src="producto6.jpg" alt="Producto 6">
+        <h2>Taza Personalizada</h2>
+        <p>Con tu foto o mensaje favorito.</p>
+        <p class="producto">
+            <span class="off">Oferta</span> 
+            <span class="precio-container">
+                <span class="precio-original">$800</span>
+                <span class="precio-final">$400</span>
+            </span>
+        </p>
+        <button class="agregar-carrito">Agregar al carrito</button>
+    </div>
+
+    <div class="producto" data-id="7" data-nombre="Auriculares Inalámbricos" data-precio="2500">
+        <img src="producto7.jpg" alt="Producto 7">
+        <h2>Auriculares Inalámbricos</h2>
+        <p>Escucha música sin cables.</p>
+        <p class="producto">
+            <span class="off">Oferta</span> 
+            <span class="precio-container">
+                <span class="precio-original">$3500</span>
+                <span class="precio-final">$2500</span>
+            </span>
+        </p>
+        <button class="agregar-carrito">Agregar al carrito</button>
+    </div>
+
+    <div class="producto" data-id="8" data-nombre="Cargador Solar" data-precio="1200">
+        <img src="producto8.jpg" alt="Producto 8">
+        <h2>Cargador Solar</h2>
+        <p>Carga tus dispositivos con energía solar.</p>
+        <p class="producto">
+            <span class="off">Oferta</span> 
+            <span class="precio-container">
+                <span class="precio-original">$1800</span>
+                <span class="precio-final">$1200</span>
+            </span>
+        </p>
+        <button class="agregar-carrito">Agregar al carrito</button>
+    </div>
+
+    <div class="producto" data-id="9" data-nombre="Cámara de Seguridad" data-precio="4000">
+        <img src="producto9.jpg" alt="Producto 9">
+        <h2>Cámara de Seguridad</h2>
+        <p>Protege tu hogar de manera efectiva.</p>
+        <p class="producto">
+            <span class="off">Oferta</span> 
+            <span class="precio-container">
+                <span class="precio-original">$5000</span>
+                <span class="precio-final">$4000</span>
+            </span>
+        </p>
+        <button class="agregar-carrito">Agregar al carrito</button>
+    </div>
+
+    <div class="producto" data-id="10" data-nombre="Teclado Mecánico" data-precio="2200">
+        <img src="producto10.jpg" alt="Producto 10">
+        <h2>Teclado Mecánico</h2>
+        <p>Teclado para gamers con retroiluminación RGB.</p>
+        <p class="producto">
+            <span class="off">Oferta</span> 
+            <span class="precio-container">
+                <span class="precio-original">$3000</span>
+                <span class="precio-final">$2200</span>
+            </span>
+        </p>
+        <button class="agregar-carrito">Agregar al carrito</button>
+    </div>
+</section>
+
+
+    <div id="carrito-detalles">
+        <h3>Tu Carrito</h3>
+        <div id="carrito-lista"></div>
+        <p>Total: <span id="carrito-total">$0.00</span></p>
+        <button id="vaciar-carrito">Vaciar Carrito</button>
+		<!-- Botón para enviar el carrito por WhatsApp -->
+		<button id="boton-comprar">Comprar</button>
+    </div>
+    <script src="script.js"></script>
+	
+	// localstorage
+	<!-- En tu HTML principal -->
+	<script>
+		// Escuchar cuando se haga clic en "Agregar al carrito"
+		document.querySelectorAll('.agregar-carrito').forEach(button => {
+			button.addEventListener('click', function() {
+				const producto = this.closest('.producto');
+				const productoId = producto.dataset.id;
+				const productoNombre = producto.dataset.nombre;
+				const productoPrecio = producto.dataset.precio;
+				
+				// Crear un objeto con la información del producto
+				const productoObj = {
+					id: productoId,
+					nombre: productoNombre,
+					precio: productoPrecio
+				};
+				
+				// Obtener el carrito desde localStorage, o crear uno vacío si no existe
+				let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+				
+				// Agregar el producto al carrito
+				carrito.push(productoObj);
+				
+				// Guardar el carrito de vuelta en localStorage
+				localStorage.setItem('carrito', JSON.stringify(carrito));
+				
+				// Actualizar el contador del carrito
+				document.getElementById('carrito-contador').textContent = carrito.length;
+			});
+		});
+		document.getElementById('carrito-icono').addEventListener('click', function() {
+			window.location.href = 'carrito.html'; // Redirige a la página carrito.html
+		});
+	</script>
+
+</body>
+</html>
