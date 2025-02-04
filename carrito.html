@@ -8,110 +8,93 @@
         body {
             font-family: Arial, sans-serif;
             padding: 20px;
-            background-color: #f8f9fa;
             text-align: center;
         }
         h1 {
-            color: #333;
-        }
-        #carrito-lista {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 20px;
+            text-align: center;
         }
         .producto-carrito {
-            background: white;
-            border-radius: 10px;
-            padding: 15px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: left;
-            width: 250px;
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
         }
         .producto-carrito h2 {
-            font-size: 18px;
             margin: 0;
-            color: #333;
+            font-size: 18px;
         }
         .producto-carrito p {
             margin: 5px 0;
-            color: #555;
         }
         .producto-carrito .precio {
-            color: #28a745;
+            color: green;
             font-weight: bold;
         }
-        .boton {
+        #vaciar-carrito, #boton-comprar, #boton-atras {
             display: block;
-            margin: 10px auto;
-            padding: 12px 20px;
+            margin: 20px auto;
+            padding: 10px 20px;
             border: none;
-            border-radius: 5px;
-            font-size: 16px;
             cursor: pointer;
-            width: 200px;
-            transition: background 0.3s ease;
+            font-size: 16px;
+            border-radius: 5px;
         }
         #vaciar-carrito {
-            background-color: #dc3545;
+            background-color: red;
             color: white;
         }
-        #vaciar-carrito:hover {
-            background-color: #c82333;
-        }
-        #boton-pagar {
-            background-color: #28a745;
+        #boton-comprar {
+            background-color: green;
             color: white;
         }
-        #boton-pagar:hover {
-            background-color: #218838;
+        #boton-atras {
+            background-color: #007bff;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: fit-content;
+            padding: 10px 15px;
         }
-        .total {
-            font-size: 20px;
-            font-weight: bold;
-            margin-top: 20px;
-            color: #333;
+        #boton-atras span {
+            margin-left: 5px;
         }
     </style>
 </head>
 <body>
-    <h1>🛒 Tu Carrito de Compras</h1>
+    <button id="boton-atras" onclick="window.location.href='index.html'">⬅️ <span>Atrás</span></button>
+    
+    <h1>Tu Carrito de Compras</h1>
     <div id="carrito-lista"></div>
-    <p class="total">Total: $<span id="total-carrito">0.00</span></p>
-    <button id="vaciar-carrito" class="boton">Vaciar Carrito</button>
-    <button id="boton-pagar" class="boton">Pagar</button>
+    <button id="vaciar-carrito">Vaciar Carrito</button>
+    <button id="boton-comprar">Pagar</button>
 
     <script>
+        // Recuperar el carrito del localStorage
         const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
         const carritoLista = document.getElementById('carrito-lista');
-        const totalCarrito = document.getElementById('total-carrito');
-
-        let total = 0;
-
+        
+        // Mostrar los productos en el carrito
         if (carrito.length > 0) {
             carrito.forEach(producto => {
-                total += producto.precio * (producto.cantidad || 1);
                 const productoDiv = document.createElement('div');
                 productoDiv.classList.add('producto-carrito');
                 productoDiv.innerHTML = `
                     <h2>${producto.nombre}</h2>
-                    <p>Cantidad: ${producto.cantidad || 1}</p>
-                    <p>Precio: <span class="precio">$${producto.precio * (producto.cantidad || 1)}</span></p>
+                    <p>Precio: <span class="precio">$${producto.precio}</span></p>
                 `;
                 carritoLista.appendChild(productoDiv);
             });
-            totalCarrito.textContent = total.toFixed(2);
         } else {
             carritoLista.innerHTML = '<p>No hay productos en tu carrito.</p>';
         }
 
+        // Función para vaciar el carrito
         document.getElementById('vaciar-carrito').addEventListener('click', function() {
             localStorage.removeItem('carrito');
-            window.location.reload();
+            window.location.reload(); // Recargar la página para reflejar el carrito vacío
         });
 
-        document.getElementById('boton-pagar').addEventListener('click', function() {
+        // Función para generar el mensaje de WhatsApp con los productos del carrito
+        function generarMensajeWhatsApp() {
             if (carrito.length === 0) {
                 alert('Tu carrito está vacío.');
                 return;
@@ -119,17 +102,25 @@
 
             let mensaje = '¡Hola! Me gustaría comprar los siguientes productos:\n\n';
             carrito.forEach(producto => {
-                mensaje += `- ${producto.nombre} (x${producto.cantidad || 1}) - $${(producto.precio * (producto.cantidad || 1)).toFixed(2)}\n`;
+                mensaje += `- ${producto.nombre} - $${producto.precio}\n`;
             });
 
-            mensaje += `\nTotal: $${total.toFixed(2)}\n\n¡Gracias!`;
+            mensaje += `\nTotal: $${calcularTotal()}\n\n¡Gracias!`;
 
-            const telefono = '3512965608';
+            const telefono = '3512965608'; // Reemplaza con tu número
             const mensajeCodificado = encodeURIComponent(mensaje);
             const enlaceWhatsApp = `https://wa.me/${telefono}?text=${mensajeCodificado}`;
 
             window.open(enlaceWhatsApp, '_blank');
-        });
+        }
+
+        function calcularTotal() {
+            let total = 0;
+            carrito.forEach(producto => total += producto.precio);
+            return total.toFixed(2);
+        }
+
+        document.getElementById('boton-comprar').addEventListener('click', generarMensajeWhatsApp);
     </script>
 </body>
 </html>
